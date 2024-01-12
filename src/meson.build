@@ -37,7 +37,7 @@ cargo_build = custom_target(
   output: meson.project_name(),
   console: true,
   install: true,
-  install_dir: get_option('bindir'),
+  install_dir: bindir,
   command: [
     'env', cargo_env,
     cargo_bin, 'build',

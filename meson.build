@@ -13,6 +13,7 @@ base_id = 'dev.bragefuglseth.Fretboard'
 version = meson.project_version()
 
 prefix = get_option('prefix')
+bindir = get_option('bindir')
 localedir = prefix / get_option('localedir')
 datadir = prefix / get_option('datadir')
 pkgdatadir = datadir / meson.project_name()
@@ -23,9 +24,11 @@ gettext_package = meson.project_name()
 if get_option('profile') == 'development'
   profile = 'Devel'
   application_id = '@0@.@1@'.format(base_id, profile)
+  object_path = '/dev/bragefuglseth/Fretboard/Devel/SearchProvider'
 else
   profile = ''
   application_id = base_id
+  object_path = '/dev/bragefuglseth/Fretboard/SearchProvider'
 endif
 
 meson.add_dist_script(
